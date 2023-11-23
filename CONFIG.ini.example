@@ -1,0 +1,14 @@
+# app internal configurations
+[APP]
+first_use=true
+log_dir=log
+# postgres related configurations
+[DATABASE]
+host=
+password=
+admin_db=
+# placeholder for runtime configurations
+# will be filled by the application on runtime, don't fill configs for this section
+[RUNNING]
+selected_database=
+sql_files=
