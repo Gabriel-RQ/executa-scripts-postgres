@@ -1,2 +1,2 @@
 #!/bin/sh
-python src/main.pyw
+python3 src/main.pyw

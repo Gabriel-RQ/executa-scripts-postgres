@@ -50,6 +50,7 @@ Navegar até a pasta do projeto e fazer o download dos requisitos com o comando:
 
 ### Linux/Mac
 
+- Utilizar o executável compilado com [PyInstaller](https://pyinstaller.org/en/stable/) (disponível nas releases, compilado com python `3.11.5`, somente para linux)
 - Executar o arquivo [run.sh](./run.sh) (é possível transformá-lo em um executável com o comando `chmod u+x run.sh`).
 - Executar [main.pyw](./src/main.pyw) com python (`python src/main.pyw` a partir da pasta raíz do projeto).
 - Transformar [main.pyw](./src/main.pyw) em um executável com o comando `chmod u+x ./src/main.pyw` e executá-lo com o comando `./src/main.pyw`.
@@ -59,7 +60,7 @@ Navegar até a pasta do projeto e fazer o download dos requisitos com o comando:
 A aplicação pode ser compilada com [PyInstaller](https://pyinstaller.org/en/stable/) utilizando o seguinte comando, a partir da pasta raíz do projeto:
 
 ```
-   pyinstaller --clean --onefile .\src\main.pyw --noconsole
+   pyinstaller --clean --onefile ./src/main.pyw --noconsole
 ```
 
 O projeto compilado estará localizado na pasta `dist/`. É preciso copiar o arquivo [CONFIG.ini.example](./CONFIG.ini.example) para dentro da pasta que contêm o executavel (`dist/`) para que a aplicação funcione.
