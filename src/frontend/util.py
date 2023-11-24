@@ -9,10 +9,7 @@ from backend.configs import (
 )
 from os import path, makedirs
 from datetime import datetime
-from tkinter import (
-    # simpledialog,
-    messagebox,
-)
+from tkinter import messagebox
 from customtkinter import CTkInputDialog
 from typing import Literal
 
@@ -57,22 +54,30 @@ def change_config(config: Literal["host", "password", "adm_db"]) -> None:
 
 
 def save_execution_log(file_name: str, log: str) -> None:
-    if not path.exists(path.join(CONFIGS["APP"]["log_dir"], "databases")):
-        makedirs(path.join(f"{CONFIGS['APP']['log_dir']}", "databases"))
+    if not path.exists(path.join(path.abspath(CONFIGS["APP"]["log_dir"]), "databases")):
+        makedirs(path.join(path.abspath(CONFIGS["APP"]["log_dir"]), "databases"))
 
-    with open(f"{CONFIGS['APP']['log_dir']}/databases/{file_name}.log", "a") as f:
+    with open(
+        path.join(
+            path.abspath(CONFIGS["APP"]["log_dir"]), "databases", f"{file_name}.log"
+        ),
+        "a",
+    ) as f:
         f.write(f"[{datetime.now()}] {log}\n")
 
 
 def read_execution_log(file_name: str) -> str:
     with open(
-        path.join(CONFIGS["APP"]["log_dir"], "databases", f"{file_name}.log"), "r"
+        path.join(
+            path.abspath(CONFIGS["APP"]["log_dir"]), "databases", f"{file_name}.log"
+        ),
+        "r",
     ) as f:
         return f.read()
 
 
 def read_app_log() -> str:
-    with open(path.join(CONFIGS["APP"]["log_dir"], "app.log"), "r") as f:
+    with open(path.join(path.abspath(CONFIGS["APP"]["log_dir"]), "app.log"), "r") as f:
         return f.read()
 
 

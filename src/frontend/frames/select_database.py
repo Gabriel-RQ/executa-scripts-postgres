@@ -2,18 +2,12 @@ import atexit
 import logging
 from tkinter import (
     messagebox,
-    # Frame,
-    # Label,
-    # StringVar,
     Misc,
-    # font,
 )
 
-# from tkinter.ttk import Combobox
 from customtkinter import (
     CTkFrame,
     CTkLabel,
-    CTkComboBox,
     CTkFont,
     CTkOptionMenu,
     StringVar,
@@ -59,8 +53,6 @@ class FRAME_select_database(CTkFrame):
             text=f"[HOST DA BASE DE DADOS: {CONFIGS['DATABASE']['host']}]",
         )
         host_info_label.pack(anchor="center", pady=4)
-        # host_info_font = font.Font(font=host_info_label["font"]).actual()
-        # host_info_label.config(font=(host_info_font["family"], 8, "bold"))
         host_info_label.cget("font").configure(size=12, weight="bold")
 
         # combo frame

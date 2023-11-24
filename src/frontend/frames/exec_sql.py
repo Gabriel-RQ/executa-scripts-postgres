@@ -1,8 +1,5 @@
 import logging, threading
 from tkinter import (
-    # Frame,
-    # Button,
-    # Label,
     Misc,
     messagebox,
 )

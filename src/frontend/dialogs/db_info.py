@@ -51,6 +51,7 @@ class DIALOG_database_info(CTkInputDialog):
         self._db_host_entry.grid(
             row=2, column=0, columnspan=2, padx=5, pady=(0, 5), sticky="ew"
         )
+        self._db_host_entry.insert(0, "localhost")
 
         # password entry
         CTkLabel(

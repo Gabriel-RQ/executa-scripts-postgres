@@ -72,7 +72,7 @@ class WINDOW_read_app_log(CTkToplevel):
         if messagebox.askyesno("Tem certeza?", "Tudo no arquivo de log será apagado"):
             f = open(
                 path.join(
-                    CONFIGS["APP"]["log_dir"],
+                    path.abspath(CONFIGS["APP"]["log_dir"]),
                     "app.log",
                 ),
                 "w",
@@ -98,7 +98,7 @@ class WINDOW_read_app_log(CTkToplevel):
 def create_window(master) -> None:
     if not path.exists(
         path.join(
-            CONFIGS["APP"]["log_dir"],
+            path.abspath(CONFIGS["APP"]["log_dir"]),
             "app.log",
         )
     ):

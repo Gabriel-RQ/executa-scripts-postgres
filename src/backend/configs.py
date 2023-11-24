@@ -5,7 +5,7 @@ CONFIGS = {}
 
 
 def read_configs(cfg_path: str = ".") -> None:
-    with open(f"{cfg_path}\CONFIG.ini", "r") as cfg_f:
+    with open(path.join(path.abspath(cfg_path), "CONFIG.ini"), "r") as cfg_f:
         section = None
         for line in cfg_f:
             # insert empty entries for each section
@@ -28,7 +28,9 @@ def read_configs(cfg_path: str = ".") -> None:
 
 
 def create_config_file(cfg_path: str = ".") -> None:
-    open(path.join(cfg_path, "CONFIG.ini"), "w").close()  # creates the config file
+    open(
+        path.join(path.abspath(cfg_path), "CONFIG.ini"), "w"
+    ).close()  # creates the config file
     shutil.copy(
         src=path.join(cfg_path, "CONFIG.ini.example"),
         dst=path.join(cfg_path, "CONFIG.ini"),
@@ -36,7 +38,7 @@ def create_config_file(cfg_path: str = ".") -> None:
 
 
 def _change_config(new_value: str, section: str, option_name: str, offset: int) -> None:
-    with open(".\CONFIG.ini", "r") as config:
+    with open(path.join(path.abspath("."), "CONFIG.ini"), "r") as config:
         data = config.readlines()
 
         for i, line in enumerate(data):
